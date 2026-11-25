@@ -210,6 +210,98 @@
   .btn-submit.income { background:var(--income); color:#050a18; }
   .btn-submit.expense { background:var(--want); color:#fff; }
   .btn-submit.saving { background:var(--save); color:#1a1200; }
+
+  /* ── View tabs (Budget / Debts) ── */
+  .view-tabs { display:flex; margin:0 20px 14px; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:4px; gap:4px; }
+  .view-tab { flex:1; padding:10px 0; border:none; border-radius:10px; background:transparent; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:13px; font-weight:600; cursor:pointer; transition:all 0.2s; }
+  .view-tab.active { background:var(--accent); color:#fff; }
+
+  /* ── Debts ── */
+  .debt-card { margin:0 20px 16px; background:linear-gradient(140deg,#141428 0%,#1a1a3a 60%,#12122a 100%); border:1px solid #2a2a50; border-radius:22px; padding:22px; }
+  .debt-net-label { font-size:11px; color:var(--muted); letter-spacing:2px; text-transform:uppercase; margin-bottom:6px; }
+  .debt-net { font-family:'Playfair Display',serif; font-size:32px; font-weight:700; letter-spacing:-1px; margin-bottom:16px; line-height:1; }
+  .debt-net.pos { color:var(--need); } .debt-net.neg { color:var(--want); }
+  .debt-stats { display:flex; gap:8px; }
+  .debt-stat { flex:1; background:rgba(255,255,255,0.04); border-radius:12px; padding:10px; }
+  .debt-stat-lbl { font-size:10px; color:var(--muted); letter-spacing:1px; text-transform:uppercase; margin-bottom:4px; }
+  .debt-stat-val { font-family:'Space Mono',monospace; font-size:12px; font-weight:700; }
+  .debt-stat-val.owed { color:var(--need); } .debt-stat-val.owe { color:var(--want); }
+  .debt-item { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:13px 14px; cursor:pointer; transition:transform 0.15s; }
+  .debt-item:active { transform:scale(0.98); }
+  .debt-top { display:flex; justify-content:space-between; align-items:center; gap:10px; }
+  .debt-person { font-size:14px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .debt-remaining { font-family:'Space Mono',monospace; font-size:13px; font-weight:700; flex-shrink:0; }
+  .debt-remaining.debtor { color:var(--need); } .debt-remaining.creditor { color:var(--want); } .debt-remaining.settled { color:var(--muted); }
+  .debt-meta { display:flex; justify-content:space-between; gap:8px; font-size:11px; color:var(--muted); margin-top:3px; }
+  .debt-meta .overdue { color:var(--want); font-weight:700; }
+  .debt-bar-bg { height:4px; background:var(--surface2); border-radius:99px; overflow:hidden; margin-top:10px; }
+  .debt-bar-fill { height:100%; border-radius:99px; }
+  .debt-bar-fill.debtor { background:var(--need); } .debt-bar-fill.creditor { background:var(--want); }
+  .btn-debtor { background:rgba(0,212,170,0.1); color:var(--need); border-color:rgba(0,212,170,0.25); }
+  .btn-creditor { background:rgba(255,107,107,0.1); color:var(--want); border-color:rgba(255,107,107,0.25); }
+  .modal-title.debtor { color:var(--need); } .modal-title.creditor { color:var(--want); }
+  .btn-submit.debtor { background:var(--need); color:#00241d; }
+  .btn-submit.creditor { background:var(--want); color:#fff; }
+  .debt-detail-row { display:flex; justify-content:space-between; font-size:13px; padding:9px 0; border-bottom:1px solid var(--border); }
+  .debt-detail-row span:first-child { color:var(--muted); }
+  .debt-detail-row span:last-child { font-family:'Space Mono',monospace; font-weight:700; }
+  .pay-list { margin:6px 0 14px; }
+  .pay-row { display:flex; justify-content:space-between; font-size:12px; color:var(--muted); padding:6px 0; }
+  .pay-row span:last-child { font-family:'Space Mono',monospace; color:var(--text); }
+  .pay-form { display:flex; gap:8px; }
+  .pay-form input { flex:1; }
+  .pay-btn { padding:0 18px; border:none; border-radius:12px; background:var(--accent); color:#fff; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:700; cursor:pointer; }
+  .debt-delete { width:100%; margin-top:14px; padding:12px; background:rgba(255,107,107,0.1); border:1px solid rgba(255,107,107,0.25); color:var(--want); border-radius:12px; font-family:'DM Sans',sans-serif; font-size:13px; font-weight:600; cursor:pointer; }
+
+  /* ── Monthly report ── */
+  .rpt { margin:0 20px 20px; }
+  .rpt-head { text-align:center; padding:6px 0 16px; border-bottom:2px solid var(--accent); margin-bottom:16px; }
+  .rpt-entity { font-family:'Playfair Display',serif; font-size:22px; font-weight:900; }
+  .rpt-title { font-size:12px; color:var(--muted); margin-top:4px; letter-spacing:1px; }
+  .rpt-period { font-size:17px; font-weight:600; margin-top:10px; }
+  .rpt-meta { font-size:11px; color:var(--muted); margin-top:6px; line-height:1.6; }
+  .rpt-section { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:14px 14px 12px; margin-bottom:14px; }
+  .rpt-h { font-family:'Space Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+  .rpt-sub { font-size:11px; color:var(--muted); margin:14px 0 6px; font-weight:600; }
+  .rpt-scroll { overflow-x:auto; }
+  table.rt { width:100%; min-width:540px; border-collapse:collapse; }
+  .rt th { font-weight:600; color:var(--muted); font-size:10px; text-align:right; padding:6px; border-bottom:1px solid var(--border); white-space:nowrap; }
+  .rt th:first-child { text-align:left; }
+  .rt td { padding:6px; text-align:right; font-family:'Space Mono',monospace; font-size:11px; white-space:nowrap; }
+  .rt td:first-child { text-align:left; font-family:'DM Sans',sans-serif; font-size:12px; white-space:normal; }
+  .rt td.ind { padding-left:18px; }
+  .rt tr.grp td { font-weight:700; color:var(--accent); padding-top:14px; font-family:'DM Sans',sans-serif; }
+  .rt tr.sub td { font-weight:700; border-top:1px solid var(--border); }
+  .rt tr.tot td { font-weight:700; border-top:1px solid var(--text); border-bottom:3px double var(--text); }
+  .rt td.lbl { font-family:'DM Sans',sans-serif; font-size:11px; white-space:normal; }
+  .rt td.ok { color:var(--need); } .rt td.warn { color:var(--want); }
+  .rpt-note { font-size:11px; color:var(--muted); line-height:1.7; }
+  .rpt-note li { margin-left:16px; }
+  .btn-report { background:rgba(155,135,255,0.12); color:var(--accent); border-color:rgba(155,135,255,0.3); }
+
+  @media print {
+    @page { margin:14mm; }
+    html, body { background:#fff !important; }
+    body { max-width:none !important; padding:0 !important; color:#000 !important; }
+    .sync-bar, #appScreen > *:not(#reportView) { display:none !important; }
+    #reportView { display:block !important; }
+    .rpt { margin:0; }
+    .rpt, .rpt * { background:transparent !important; color:#000 !important; border-color:#888 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .rpt-section { border:none; border-radius:0; padding:0; margin-bottom:18px; page-break-inside:auto; }
+    .rpt-scroll { overflow:visible; }
+    table.rt { min-width:0; }
+    .rt tr { page-break-inside:avoid; }
+    .rpt-head { border-bottom:2px solid #000 !important; }
+  }
+
+  /* ── Opening balance / cash check ── */
+  .balance-amount { margin-bottom:6px; }
+  .balance-sub { display:block; width:fit-content; font-size:11px; color:var(--muted); margin-bottom:18px; cursor:pointer; }
+  .balance-sub b { color:var(--text); font-family:'Space Mono',monospace; font-weight:700; font-size:11px; }
+  .recon-msg { font-size:14px; line-height:1.65; margin-bottom:16px; }
+  .recon-msg b { font-family:'Space Mono',monospace; font-weight:700; }
+  .recon-diff { font-size:12px; color:var(--muted); min-height:18px; margin-top:-4px; line-height:1.5; }
+  .recon-later { display:block; margin:14px auto 0; background:none; border:none; color:var(--muted); font-family:'DM Sans',sans-serif; font-size:13px; cursor:pointer; }
 </style>
 </head>
 <body>
@@ -300,10 +392,19 @@
     </div>
   </div>
 
+  <!-- View tabs -->
+  <div class="view-tabs">
+    <button class="view-tab active" id="tabBudget" onclick="setView('budget')">Budget</button>
+    <button class="view-tab" id="tabDebts" onclick="setView('debts')">Debts</button>
+    <button class="view-tab" id="tabReport" onclick="setView('report')">Report</button>
+  </div>
+
+<div id="budgetView">
   <!-- Balance Card -->
   <div class="balance-card">
-    <div class="balance-label">Net Balance</div>
+    <div class="balance-label">Cash Balance</div>
     <div class="balance-amount pos" id="balanceAmount">RWF 0</div>
+    <div class="balance-sub" id="balanceSub" onclick="openReconcile('edit')"></div>
     <div class="balance-row">
       <div class="bstat">
         <div class="bstat-lbl"><span class="dot d-income"></span>Income</div>
@@ -385,13 +486,57 @@
     <div style="font-size:11px;color:var(--muted)" id="txCount">0 items</div>
   </div>
   <div class="transactions" id="transactionList"></div>
+</div><!-- end budgetView -->
+
+<div id="debtsView" style="display:none">
+  <div class="debt-card">
+    <div class="debt-net-label">Net Position</div>
+    <div class="debt-net pos" id="debtNet">RWF 0</div>
+    <div class="debt-stats">
+      <div class="debt-stat">
+        <div class="debt-stat-lbl">Owed to me</div>
+        <div class="debt-stat-val owed" id="debtOwed">RWF 0</div>
+      </div>
+      <div class="debt-stat">
+        <div class="debt-stat-lbl">I owe</div>
+        <div class="debt-stat-val owe" id="debtOwe">RWF 0</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-tabs">
+    <button class="filter-tab active" id="dfDebtor" onclick="setDebtFilter('debtor')">Debtors</button>
+    <button class="filter-tab" id="dfCreditor" onclick="setDebtFilter('creditor')">Creditors</button>
+    <button class="filter-tab" id="dfSettled" onclick="setDebtFilter('settled')">Settled</button>
+  </div>
+
+  <div class="section-header">
+    <div class="section-title" id="debtSectionTitle">People who owe me</div>
+    <div style="font-size:11px;color:var(--muted)" id="debtCount">0 items</div>
+  </div>
+  <div class="transactions" id="debtList"></div>
+</div><!-- end debtsView -->
+
+<div id="reportView" style="display:none">
+  <div class="rpt" id="reportBody"></div>
+</div><!-- end reportView -->
 
   <!-- Bottom Nav -->
-  <div class="bottom-nav">
+  <div class="bottom-nav" id="budgetNav">
     <button class="add-btn btn-income"  onclick="openModal('income')">+ Income</button>
     <button class="add-btn btn-expense" onclick="openModal('expense')">+ Expense</button>
     <button class="add-btn btn-save"    onclick="openModal('saving')">+ Save</button>
     <button class="del-btn" id="delModeBtn" onclick="toggleDeleteMode()">🗑</button>
+  </div>
+
+  <div class="bottom-nav" id="reportNav" style="display:none">
+    <button class="add-btn btn-report" onclick="printReport()">Print / Save PDF</button>
+    <button class="add-btn btn-report" onclick="exportCsv()">Export CSV</button>
+  </div>
+
+  <div class="bottom-nav" id="debtsNav" style="display:none">
+    <button class="add-btn btn-debtor"   onclick="openDebtModal('debtor')">+ Debtor</button>
+    <button class="add-btn btn-creditor" onclick="openDebtModal('creditor')">+ Creditor</button>
   </div>
 
 </div><!-- end appScreen -->
@@ -427,6 +572,83 @@
     <div class="modal-actions">
       <button class="btn-cancel" onclick="closeModal()">Cancel</button>
       <button class="btn-submit income" id="submitBtn" onclick="addTransaction()">Add</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add Debt Modal -->
+<div class="modal-overlay" id="debtModal">
+  <div class="modal">
+    <div class="modal-title" id="debtModalTitle">Add</div>
+    <div class="form-group">
+      <label id="debtPersonLabel">Person</label>
+      <input type="text" id="debtPerson" placeholder="Name" list="personList" autocomplete="off">
+      <datalist id="personList"></datalist>
+    </div>
+    <div class="form-group">
+      <label>Amount (RWF)</label>
+      <input type="number" id="debtAmount" placeholder="0" inputmode="numeric" step="1" min="0">
+    </div>
+    <div class="form-group">
+      <label>Note (optional)</label>
+      <input type="text" id="debtDesc" placeholder="e.g. Loan for school fees">
+    </div>
+    <div class="form-group">
+      <label>Date</label>
+      <input type="date" id="debtDate">
+    </div>
+    <div class="form-group">
+      <label>Due date (optional)</label>
+      <input type="date" id="debtDue">
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeDebtModal()">Cancel</button>
+      <button class="btn-submit debtor" id="debtSubmitBtn" onclick="addDebt()">Add</button>
+    </div>
+  </div>
+</div>
+
+<!-- Debt Detail Modal -->
+<div class="modal-overlay" id="debtDetailModal">
+  <div class="modal">
+    <div class="modal-title" id="detailTitle">Debt</div>
+    <div id="detailBody"></div>
+    <div id="detailPayForm">
+      <label>Record a payment (RWF)</label>
+      <div class="pay-form">
+        <input type="number" id="payAmount" placeholder="0" inputmode="numeric" step="1" min="0">
+        <button class="pay-btn" onclick="addPayment()">Add</button>
+      </div>
+    </div>
+    <button class="debt-delete" onclick="deleteDebt()">Delete this entry</button>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeDebtDetail()">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Cash check Modal -->
+<div class="modal-overlay" id="reconModal">
+  <div class="modal">
+    <div class="modal-title" id="reconTitle" style="color:var(--accent)">Check your cash</div>
+    <div class="recon-msg" id="reconMsg"></div>
+    <div id="reconAsk">
+      <div class="modal-actions" style="margin-top:8px">
+        <button class="btn-cancel" onclick="reconNo()">No, different</button>
+        <button class="btn-submit income" onclick="reconYes()">Yes, same</button>
+      </div>
+      <button class="recon-later" onclick="reconLater()">Ask me later</button>
+    </div>
+    <div id="reconEnter" style="display:none">
+      <div class="form-group">
+        <label>Cash you have on you (RWF)</label>
+        <input type="number" id="reconInput" placeholder="0" inputmode="numeric" step="1" oninput="reconDiff()">
+      </div>
+      <div class="recon-diff" id="reconDiff"></div>
+      <div class="modal-actions">
+        <button class="btn-cancel" id="reconBackBtn" onclick="reconBack()">Back</button>
+        <button class="btn-submit income" onclick="reconSave()">Save</button>
+      </div>
     </div>
   </div>
 </div>
@@ -484,6 +706,19 @@ let selectedNW    = '';
 let deleteMode    = false;
 let currentFilter = 'all';
 let currentMonth, currentYear;
+let debts         = [];   // live cache of debtors/creditors
+let unsubDebts    = null;
+let currentView   = 'budget';
+let debtFilter    = 'debtor';
+let debtKind      = 'debtor';
+let detailId      = null;
+let balances      = {};   // confirmed opening balances, keyed by 'YYYY-MM'
+let unsubBalances = null;
+let txLoaded      = false;
+let balLoaded     = false;
+let reconSkipFor  = '';   // month key the user chose 'Ask me later' for
+let reconKey      = '';   // month the cash-check modal is working on
+let reconMode     = '';
 
 // ── Sync bar helpers ─────────────────────────────────────────
 function showSync(msg, type='') {
@@ -540,6 +775,9 @@ window.doForgot = async () => {
 
 window.doLogout = async () => {
   if (unsubscribe) unsubscribe();
+  if (unsubDebts) { unsubDebts(); unsubDebts = null; }
+  if (unsubBalances) { unsubBalances(); unsubBalances = null; }
+  txLoaded = false; balLoaded = false; balances = {};
   await signOut(auth);
 };
 
@@ -572,6 +810,10 @@ onAuthStateChanged(auth, user => {
   } else {
     currentUser = null;
     if (unsubscribe) { unsubscribe(); unsubscribe = null; }
+    if (unsubDebts)  { unsubDebts();  unsubDebts  = null; }
+    debts = [];
+    if (unsubBalances) { unsubBalances(); unsubBalances = null; }
+    balances = {}; txLoaded = false; balLoaded = false;
     document.getElementById('authScreen').style.display = 'flex';
     document.getElementById('appScreen').style.display  = 'none';
     showLogin();
@@ -594,10 +836,29 @@ function startFirestoreListener() {
       showSync('✓ Synced', 'success');
       hideSync();
       render();
+      txLoaded = true;
+      checkReconcile();
     },
     err => {
       console.error(err);
       showSync('⚠ Sync error — working offline', 'error');
+    }
+  );
+  startDebtsListener();
+  startBalancesListener();
+}
+
+function startDebtsListener() {
+  if (unsubDebts) unsubDebts();
+  const dq = query(collection(db, 'debts'), where('userId', '==', currentUser.uid));
+  unsubDebts = onSnapshot(dq,
+    snapshot => {
+      debts = snapshot.docs.map(d => d.data());
+      renderDebts();
+    },
+    err => {
+      console.error(err);
+      showSync('⚠ Debts not syncing — check Firestore rules', 'error');
     }
   );
 }
@@ -618,6 +879,7 @@ function monthTxs() {
 
 // ── Render ───────────────────────────────────────────────────
 function render() {
+  if (currentView === 'report') renderReport();
   const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   document.getElementById('monthLabel').textContent = `${MONTHS[currentMonth]} ${currentYear}`;
 
@@ -627,9 +889,12 @@ function render() {
   const wants   = txs.filter(t=>t.type==='expense'&&t.needWant==='want').reduce((s,t)=>s+t.amount,0);
   const saved   = txs.filter(t=>t.type==='saving').reduce((s,t)=>s+t.amount,0);
   const expense = needs + wants;
-  const balance = income - expense - saved;
+  const net     = income - expense - saved;
+  const bal     = balanceFor(getKey());
+  const balance = bal.closing;
 
-  document.getElementById('balanceAmount').textContent = fmt(balance);
+  document.getElementById('balanceAmount').textContent = (balance<0?'-':'')+fmt(balance);
+  document.getElementById('balanceSub').innerHTML = `Opening <b>${signed(bal.opening)}</b> ✎ &nbsp;·&nbsp; This month <b>${net<0?'−':'+'}${fmt(net)}</b>`;
   document.getElementById('balanceAmount').className   = 'balance-amount '+(balance>=0?'pos':'neg');
   document.getElementById('totalIncome').textContent   = fmt(income);
   document.getElementById('totalExpense').textContent  = fmt(expense);
@@ -824,6 +1089,642 @@ window.setFilter = (f,el) => {
   document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
   el.classList.add('active');
   render();
+};
+
+// ── Debts: debtors & creditors ───────────────────────────────
+function esc(str) {
+  return String(str).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function todayStr() { return new Date().toISOString().split('T')[0]; }
+function remaining(d) { return Math.max(0, d.amount - (d.paid || 0)); }
+
+window.setView = v => {
+  currentView = v;
+  const views = { budget:['budgetView','budgetNav'], debts:['debtsView','debtsNav'], report:['reportView','reportNav'] };
+  Object.entries(views).forEach(([name, [viewId, navId]]) => {
+    document.getElementById(viewId).style.display = name === v ? 'block' : 'none';
+    document.getElementById(navId).style.display  = name === v ? 'flex'  : 'none';
+  });
+  document.querySelector('.month-nav').style.display = v === 'debts' ? 'none' : 'flex';
+  document.getElementById('tabBudget').classList.toggle('active', v === 'budget');
+  document.getElementById('tabDebts').classList.toggle('active',  v === 'debts');
+  document.getElementById('tabReport').classList.toggle('active', v === 'report');
+  if (v === 'debts')  renderDebts();
+  if (v === 'report') renderReport();
+};
+
+window.setDebtFilter = f => {
+  debtFilter = f;
+  ['Debtor','Creditor','Settled'].forEach(n =>
+    document.getElementById('df'+n).classList.toggle('active', f === n.toLowerCase()));
+  renderDebts();
+};
+
+function renderDebts() {
+  if (currentView === 'report') renderReport();
+  const open      = debts.filter(d => remaining(d) > 0);
+  const owedToMe  = open.filter(d => d.kind === 'debtor').reduce((s,d) => s + remaining(d), 0);
+  const iOwe      = open.filter(d => d.kind === 'creditor').reduce((s,d) => s + remaining(d), 0);
+  const net       = owedToMe - iOwe;
+
+  document.getElementById('debtOwed').textContent = fmt(owedToMe);
+  document.getElementById('debtOwe').textContent  = fmt(iOwe);
+  const netEl = document.getElementById('debtNet');
+  netEl.textContent = (net < 0 ? '-' : '') + fmt(net);
+  netEl.className   = 'debt-net ' + (net >= 0 ? 'pos' : 'neg');
+
+  const titles = { debtor:'People who owe me', creditor:'People I owe', settled:'Fully paid' };
+  document.getElementById('debtSectionTitle').textContent = titles[debtFilter];
+
+  let list;
+  if (debtFilter === 'settled') list = debts.filter(d => remaining(d) === 0);
+  else list = open.filter(d => d.kind === debtFilter);
+
+  // overdue first, then by due date, then newest
+  const today = todayStr();
+  list.sort((a,b) => {
+    const ao = a.dueDate && a.dueDate < today ? 0 : 1;
+    const bo = b.dueDate && b.dueDate < today ? 0 : 1;
+    if (ao !== bo) return ao - bo;
+    if (a.dueDate && b.dueDate && a.dueDate !== b.dueDate) return a.dueDate < b.dueDate ? -1 : 1;
+    return new Date(b.date) - new Date(a.date);
+  });
+
+  document.getElementById('debtCount').textContent = list.length + ' items';
+
+  const el = document.getElementById('debtList');
+  if (!list.length) {
+    const msg = debtFilter === 'debtor'   ? 'Nobody owes you money.<br>Tap + Debtor to record a loan.'
+              : debtFilter === 'creditor' ? 'You owe nobody.<br>Tap + Creditor to record a debt.'
+              : 'Nothing settled yet.';
+    el.innerHTML = `<div class="empty-state"><div class="emoji">🤝</div><p>${msg}</p></div>`;
+  } else {
+    el.innerHTML = list.map(d => {
+      const rem   = remaining(d);
+      const pct   = d.amount > 0 ? Math.min(100, ((d.paid||0) / d.amount) * 100) : 0;
+      const over  = rem > 0 && d.dueDate && d.dueDate < today;
+      const cls   = rem === 0 ? 'settled' : d.kind;
+      const due   = d.dueDate ? (over ? `<span class="overdue">Overdue · ${fmtDate(d.dueDate)}</span>` : `<span>Due ${fmtDate(d.dueDate)}</span>`) : `<span>${fmtDate(d.date)}</span>`;
+      const note  = d.desc ? esc(d.desc) : (d.kind === 'debtor' ? 'Owes you' : 'You owe');
+      return `
+        <div class="debt-item" onclick="openDebtDetail('${d.id}')">
+          <div class="debt-top">
+            <div class="debt-person">${esc(d.person)}</div>
+            <div class="debt-remaining ${cls}">${rem === 0 ? 'Paid' : fmt(rem)}</div>
+          </div>
+          <div class="debt-meta"><span>${note}</span>${due}</div>
+          <div class="debt-bar-bg"><div class="debt-bar-fill ${d.kind}" style="width:${pct}%"></div></div>
+        </div>`;
+    }).join('');
+  }
+
+  // keep the detail modal fresh if it is open
+  if (detailId && document.getElementById('debtDetailModal').classList.contains('open')) fillDebtDetail();
+
+  // names for autocomplete
+  const names = [...new Set(debts.map(d => d.person))];
+  document.getElementById('personList').innerHTML = names.map(n => `<option value="${esc(n)}">`).join('');
+}
+
+window.openDebtModal = kind => {
+  debtKind = kind;
+  document.getElementById('debtPerson').value = '';
+  document.getElementById('debtAmount').value = '';
+  document.getElementById('debtDesc').value   = '';
+  document.getElementById('debtDate').value   = todayStr();
+  document.getElementById('debtDue').value    = '';
+  const title = document.getElementById('debtModalTitle');
+  const sub   = document.getElementById('debtSubmitBtn');
+  const lbl   = document.getElementById('debtPersonLabel');
+  if (kind === 'debtor') {
+    title.textContent = '+ Add Debtor'; title.className = 'modal-title debtor';
+    sub.className = 'btn-submit debtor'; lbl.textContent = 'Who owes you?';
+  } else {
+    title.textContent = '+ Add Creditor'; title.className = 'modal-title creditor';
+    sub.className = 'btn-submit creditor'; lbl.textContent = 'Who do you owe?';
+  }
+  document.getElementById('debtModal').classList.add('open');
+  setTimeout(() => document.getElementById('debtPerson').focus(), 300);
+};
+window.closeDebtModal = () => document.getElementById('debtModal').classList.remove('open');
+
+window.addDebt = async () => {
+  const person = document.getElementById('debtPerson').value.trim();
+  const amount = parseFloat(document.getElementById('debtAmount').value);
+  const desc   = document.getElementById('debtDesc').value.trim();
+  const date   = document.getElementById('debtDate').value || todayStr();
+  const due    = document.getElementById('debtDue').value || null;
+  if (!person)            { document.getElementById('debtPerson').focus(); return; }
+  if (!amount||amount<=0) { document.getElementById('debtAmount').focus(); return; }
+
+  const debt = {
+    id: Date.now().toString(),
+    userId: currentUser.uid,
+    kind: debtKind,
+    person, amount, desc,
+    date, dueDate: due,
+    paid: 0,
+    payments: []
+  };
+  closeDebtModal();
+  showSync('☁ Saving...', '');
+  try {
+    await setDoc(doc(db, 'debts', debt.id), debt);
+    showSync('✓ Saved', 'success');
+    hideSync();
+  } catch(e) {
+    console.error(e);
+    showSync('⚠ Save failed — check connection', 'error');
+  }
+};
+
+window.openDebtDetail = id => {
+  detailId = id;
+  document.getElementById('payAmount').value = '';
+  fillDebtDetail();
+  document.getElementById('debtDetailModal').classList.add('open');
+};
+window.closeDebtDetail = () => {
+  document.getElementById('debtDetailModal').classList.remove('open');
+  detailId = null;
+};
+
+function fillDebtDetail() {
+  const d = debts.find(x => x.id === detailId);
+  if (!d) { closeDebtDetail(); return; }
+  const rem = remaining(d);
+  const title = document.getElementById('detailTitle');
+  title.textContent = d.person;
+  title.className = 'modal-title ' + d.kind;
+  const pays = (d.payments || []).slice().sort((a,b) => new Date(b.date) - new Date(a.date));
+  document.getElementById('detailBody').innerHTML = `
+    <div class="debt-detail-row"><span>${d.kind === 'debtor' ? 'Owes you' : 'You owe'}</span><span>${fmt(d.amount)}</span></div>
+    <div class="debt-detail-row"><span>Paid so far</span><span>${fmt(d.paid || 0)}</span></div>
+    <div class="debt-detail-row"><span>Remaining</span><span>${rem === 0 ? 'Settled' : fmt(rem)}</span></div>
+    <div class="debt-detail-row"><span>Date</span><span>${fmtDate(d.date)}</span></div>
+    ${d.dueDate ? `<div class="debt-detail-row"><span>Due</span><span>${fmtDate(d.dueDate)}</span></div>` : ''}
+    ${d.desc ? `<div class="debt-detail-row"><span>Note</span><span style="font-family:'DM Sans',sans-serif;font-weight:500;text-align:right;max-width:60%">${esc(d.desc)}</span></div>` : ''}
+    ${pays.length ? `<div class="pay-list">${pays.map(p => `<div class="pay-row"><span>Payment · ${fmtDate(p.date)}</span><span>${fmt(p.amount)}</span></div>`).join('')}</div>` : '<div style="height:14px"></div>'}`;
+  document.getElementById('detailPayForm').style.display = rem === 0 ? 'none' : 'block';
+}
+
+window.addPayment = async () => {
+  const d = debts.find(x => x.id === detailId);
+  if (!d) return;
+  const amt = parseFloat(document.getElementById('payAmount').value);
+  if (!amt || amt <= 0) { document.getElementById('payAmount').focus(); return; }
+  if (amt > remaining(d)) { alert('That is more than the remaining ' + fmt(remaining(d)) + '.'); return; }
+  const updated = {
+    ...d,
+    paid: (d.paid || 0) + amt,
+    payments: [...(d.payments || []), { amount: amt, date: todayStr() }]
+  };
+  document.getElementById('payAmount').value = '';
+  showSync('☁ Saving...', '');
+  try {
+    await setDoc(doc(db, 'debts', d.id), updated);
+    showSync('✓ Payment saved', 'success');
+    hideSync();
+  } catch(e) {
+    console.error(e);
+    showSync('⚠ Save failed — check connection', 'error');
+  }
+};
+
+window.deleteDebt = async () => {
+  const d = debts.find(x => x.id === detailId);
+  if (!d) return;
+  if (!confirm('Delete the entry for ' + d.person + '?')) return;
+  closeDebtDetail();
+  showSync('☁ Deleting...', '');
+  try {
+    await deleteDoc(doc(db, 'debts', d.id));
+    showSync('✓ Deleted', 'success');
+    hideSync();
+  } catch(e) {
+    showSync('⚠ Delete failed', 'error');
+  }
+};
+
+// ── Monthly report ───────────────────────────────────────────
+function ymd(dt) { return dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0'); }
+function num(v)  { v = Math.round(v); if (!v) return '–'; const t = Math.abs(v).toLocaleString('en-US'); return v < 0 ? '('+t+')' : t; }
+function pctOf(v, base) { return base > 0 && v ? (v/base*100).toFixed(1)+'%' : '–'; }
+
+function aggregate(txs) {
+  const inc = {}, need = {}, want = {}, sav = {};
+  txs.forEach(t => {
+    const b = t.type === 'income' ? inc : t.type === 'saving' ? sav : (t.needWant === 'want' ? want : need);
+    b[t.category] = (b[t.category] || 0) + t.amount;
+  });
+  const sum = o => Object.values(o).reduce((a,b) => a+b, 0);
+  const income = sum(inc), needs = sum(need), wants = sum(want), saved = sum(sav);
+  return { inc, need, want, sav, income, needs, wants, saved, expenses: needs + wants };
+}
+
+function debtBalanceAt(d, date) {
+  if (d.date > date) return 0;
+  const paid = (d.payments || []).filter(p => p.date <= date).reduce((s,p) => s + p.amount, 0);
+  return Math.max(0, d.amount - paid);
+}
+
+function buildReport() {
+  const y = currentYear, m = currentMonth;
+  const key  = getKey();
+  const pDt  = new Date(y, m-1, 1);
+  const pkey = pDt.getFullYear()+'-'+String(pDt.getMonth()+1).padStart(2,'0');
+  const C = aggregate(transactions.filter(t => t.monthKey === key));
+  const P = aggregate(transactions.filter(t => t.monthKey === pkey));
+
+  // Statement of income and expenditure
+  const lines = [];
+  const rows = (co, po) => [...new Set([...Object.keys(co), ...Object.keys(po)])]
+    .sort((a,b) => (co[b]||0) - (co[a]||0) || (po[b]||0) - (po[a]||0));
+  const group = (label, co, po, totalLabel, ct, pt) => {
+    lines.push({ kind:'grp', label });
+    rows(co, po).forEach(k => lines.push({ kind:'row', label:k, c:co[k]||0, p:po[k]||0 }));
+    lines.push({ kind:'sub', label:totalLabel, c:ct, p:pt });
+  };
+  group('Income', C.inc, P.inc, 'Total income', C.income, P.income);
+  group('Expenditure: needs', C.need, P.need, 'Total needs', C.needs, P.needs);
+  group('Expenditure: wants', C.want, P.want, 'Total wants', C.wants, P.wants);
+  lines.push({ kind:'sub', label:'Total expenditure', c:C.expenses, p:P.expenses });
+  lines.push({ kind:'sub', label:'Surplus / (deficit) before savings', c:C.income-C.expenses, p:P.income-P.expenses });
+  group('Transfers to savings', C.sav, P.sav, 'Total transferred to savings', C.saved, P.saved);
+  const BC = balanceFor(key), BP = balanceFor(pkey);
+  lines.push({ kind:'grp', label:'Cash position' });
+  lines.push({ kind:'row', label:'Opening balance brought forward', c:BC.carried, p:BP.carried, nopct:true });
+  if (BC.adjustment || BP.adjustment) lines.push({ kind:'row', label:'Adjustment: cash counted vs recorded balance', c:BC.adjustment, p:BP.adjustment, nopct:true });
+  lines.push({ kind:'row', label:'Net cash movement for the month', c:C.income-C.expenses-C.saved, p:P.income-P.expenses-P.saved });
+  lines.push({ kind:'tot', label:'Closing balance carried forward', c:BC.closing, p:BP.closing, nopct:true });
+
+  // Budget analysis (50/30/20)
+  const budget = [
+    { name:'Needs',   pct:50, cap:true,  actual:C.needs },
+    { name:'Wants',   pct:30, cap:true,  actual:C.wants },
+    { name:'Savings', pct:20, cap:false, actual:C.saved }
+  ].map(b => {
+    const target = C.income * b.pct / 100;
+    const variance = b.cap ? target - b.actual : b.actual - target;
+    let status = '–';
+    if (C.income > 0) status = b.cap ? (b.actual <= target ? 'Within budget' : 'Over budget')
+                                      : (b.actual >= target ? 'Target met' : 'Below target');
+    return { ...b, target, variance, status, ok: variance >= 0 };
+  });
+
+  // Key indicators
+  const today = new Date();
+  const dim   = new Date(y, m+1, 0).getDate();
+  const days  = (today.getFullYear() === y && today.getMonth() === m) ? today.getDate() : dim;
+  const expCats = {};
+  transactions.filter(t => t.monthKey === key && t.type === 'expense')
+    .forEach(t => { expCats[t.category] = (expCats[t.category]||0) + t.amount; });
+  const top = Object.entries(expCats).sort((a,b) => b[1]-a[1])[0];
+  const ratio = (v, base) => base > 0 ? (v/base*100).toFixed(1)+'%' : '–';
+  const ratios = [
+    ['Savings rate (savings ÷ income)',     ratio(C.saved, C.income),    ratio(P.saved, P.income)],
+    ['Expenditure ratio (expenses ÷ income)', ratio(C.expenses, C.income), ratio(P.expenses, P.income)],
+    ['Needs ÷ income',                      ratio(C.needs, C.income),    ratio(P.needs, P.income)],
+    ['Wants ÷ income',                      ratio(C.wants, C.income),    ratio(P.wants, P.income)],
+    ['Average daily expenditure (RWF)',     C.expenses ? num(C.expenses/days) : '–', P.expenses ? num(P.expenses/new Date(pDt.getFullYear(), pDt.getMonth()+1, 0).getDate()) : '–'],
+    ['Largest expense category',            top ? `${top[0]} (${ratio(top[1], C.expenses)})` : '–', ''],
+    ['Number of transactions',              String(transactions.filter(t => t.monthKey === key).length), String(transactions.filter(t => t.monthKey === pkey).length)]
+  ];
+
+  // Debtors & creditors schedule
+  const monthStart = `${key}-01`;
+  const monthEnd   = `${key}-${String(dim).padStart(2,'0')}`;
+  const prevEnd    = ymd(new Date(y, m, 0));
+  const asAt       = ymd(today) < monthEnd ? ymd(today) : monthEnd;
+  const asAtDt     = new Date(asAt + 'T12:00:00');
+  const sched = {};
+  ['debtor','creditor'].forEach(kind => {
+    const list    = debts.filter(d => d.kind === kind);
+    const opening = list.reduce((s,d) => s + debtBalanceAt(d, prevEnd), 0);
+    const closing = list.reduce((s,d) => s + debtBalanceAt(d, monthEnd), 0);
+    const added   = list.filter(d => d.date >= monthStart && d.date <= monthEnd).reduce((s,d) => s + d.amount, 0);
+    const aging   = { current:0, d30:0, d60:0, d60p:0 };
+    const items   = [];
+    list.forEach(d => {
+      const bal = debtBalanceAt(d, monthEnd);
+      if (bal <= 0) return;
+      let over = 0;
+      if (d.dueDate && d.dueDate < asAt) over = Math.round((asAtDt - new Date(d.dueDate + 'T12:00:00')) / 86400000);
+      if (over <= 0) aging.current += bal; else if (over <= 30) aging.d30 += bal; else if (over <= 60) aging.d60 += bal; else aging.d60p += bal;
+      items.push({ person:d.person, desc:d.desc||'', due:d.dueDate||'', over, bal });
+    });
+    items.sort((a,b) => b.over - a.over || b.bal - a.bal);
+    sched[kind] = { opening, added, settled: opening + added - closing, closing, aging, items };
+  });
+  const hasDebts = ['debtor','creditor'].some(k => sched[k].opening || sched[k].added || sched[k].closing);
+
+  // Ledger
+  const ledger = transactions.filter(t => t.monthKey === key)
+    .sort((a,b) => new Date(a.date) - new Date(b.date) || String(a.id).localeCompare(String(b.id)));
+
+  return { key, pkey, C, P, lines, budget, ratios, sched, hasDebts, asAt, ledger,
+    label:  new Date(y, m, 1).toLocaleDateString('en-US', { month:'long', year:'numeric' }),
+    plabel: pDt.toLocaleDateString('en-US', { month:'long', year:'numeric' }) };
+}
+
+function renderReport() {
+  if (!currentUser) return;
+  const R = buildReport();
+  const prepared = new Date().toLocaleDateString('en-US', { day:'numeric', month:'long', year:'numeric' });
+  const incBase = R.C.income;
+
+  const stmt = R.lines.map(l => {
+    if (l.kind === 'grp') return `<tr class="grp"><td colspan="5">${l.label}</td></tr>`;
+    const cls = l.kind === 'row' ? '' : l.kind;
+    const ind = l.kind === 'row' ? ' class="ind"' : '';
+    return `<tr class="${cls}"><td${ind}>${esc(l.label)}</td><td>${num(l.c)}</td><td>${l.nopct ? '–' : pctOf(l.c, incBase)}</td><td>${num(l.p)}</td><td>${num(l.c - l.p)}</td></tr>`;
+  }).join('');
+
+  const bud = R.budget.map(b => `
+    <tr><td>${b.name} (${b.pct}%${b.cap ? ' limit' : ' minimum'})</td><td>${num(b.target)}</td><td>${num(b.actual)}</td>
+    <td>${pctOf(b.actual, incBase)}</td><td>${num(b.variance)}</td><td class="lbl ${b.status === '–' ? '' : (b.ok ? 'ok' : 'warn')}">${b.status}</td></tr>`).join('');
+
+  const rat = R.ratios.map(r => `<tr><td>${r[0]}</td><td>${esc(r[1])}</td><td>${esc(r[2])}</td></tr>`).join('');
+
+  let debtHtml = '';
+  if (R.hasDebts) {
+    const mv = (label, d, inLabel, outLabel) => `
+      <tr><td>${label}</td><td>${num(d.opening)}</td><td>${num(d.added)}</td><td>${num(-d.settled)}</td><td><strong>${num(d.closing)}</strong></td></tr>`;
+    const agingRow = (label, d) => `<tr><td>${label}</td><td>${num(d.aging.current)}</td><td>${num(d.aging.d30)}</td><td>${num(d.aging.d60)}</td><td>${num(d.aging.d60p)}</td><td><strong>${num(d.closing)}</strong></td></tr>`;
+    const itemTable = (title, d) => d.items.length ? `
+      <div class="rpt-sub">${title}</div>
+      <div class="rpt-scroll"><table class="rt"><thead><tr><th>Name</th><th>Note</th><th>Due</th><th>Days overdue</th><th>Balance</th></tr></thead><tbody>
+      ${d.items.map(i => `<tr><td>${esc(i.person)}</td><td class="lbl" style="text-align:left">${esc(i.desc)}</td><td>${i.due ? fmtDate(i.due) : '–'}</td><td>${i.over > 0 ? i.over : '–'}</td><td>${num(i.bal)}</td></tr>`).join('')}
+      <tr class="tot"><td>Total</td><td></td><td></td><td></td><td>${num(d.closing)}</td></tr></tbody></table></div>` : '';
+    debtHtml = `
+    <div class="rpt-section">
+      <div class="rpt-h">4. Debtors and creditors</div>
+      <div class="rpt-sub" style="margin-top:0">Movement during the month</div>
+      <div class="rpt-scroll"><table class="rt"><thead><tr><th></th><th>Opening</th><th>New</th><th>Collected / repaid</th><th>Closing</th></tr></thead><tbody>
+        ${mv('Debtors (owed to me)', R.sched.debtor)}
+        ${mv('Creditors (I owe)', R.sched.creditor)}
+        <tr class="tot"><td>Net position</td><td>${num(R.sched.debtor.opening - R.sched.creditor.opening)}</td><td>${num(R.sched.debtor.added - R.sched.creditor.added)}</td><td>${num(-(R.sched.debtor.settled - R.sched.creditor.settled))}</td><td>${num(R.sched.debtor.closing - R.sched.creditor.closing)}</td></tr>
+      </tbody></table></div>
+      <div class="rpt-sub">Ageing of closing balances (as at ${fmtDate(R.asAt)})</div>
+      <div class="rpt-scroll"><table class="rt"><thead><tr><th></th><th>Not yet due</th><th>1–30 days</th><th>31–60 days</th><th>Over 60 days</th><th>Total</th></tr></thead><tbody>
+        ${agingRow('Debtors', R.sched.debtor)}
+        ${agingRow('Creditors', R.sched.creditor)}
+      </tbody></table></div>
+      ${itemTable('Schedule of debtors', R.sched.debtor)}
+      ${itemTable('Schedule of creditors', R.sched.creditor)}
+    </div>`;
+  }
+
+  const ledgerRows = R.ledger.map(t => {
+    const sign = t.type === 'income' ? 1 : -1;
+    const kind = t.type === 'income' ? 'Income' : t.type === 'saving' ? 'Savings' : (t.needWant === 'want' ? 'Want' : 'Need');
+    return `<tr><td>${fmtDate(t.date)}</td><td class="lbl" style="text-align:left">${esc(t.desc)}</td><td class="lbl" style="text-align:left">${esc(t.category)}</td><td class="lbl" style="text-align:left">${kind}</td><td>${num(sign * t.amount)}</td></tr>`;
+  }).join('');
+
+  document.getElementById('reportBody').innerHTML = `
+    <div class="rpt-head">
+      <div class="rpt-entity">Fidel's Finances</div>
+      <div class="rpt-title">Monthly financial report</div>
+      <div class="rpt-period">${R.label}</div>
+      <div class="rpt-meta">Amounts in Rwandan Francs (RWF) · Cash basis<br>Prepared ${prepared} for ${esc(currentUser.email || '')}</div>
+    </div>
+
+    <div class="rpt-section">
+      <div class="rpt-h">1. Statement of income and expenditure</div>
+      <div class="rpt-scroll"><table class="rt">
+        <thead><tr><th>Description</th><th>${R.label.split(' ')[0].slice(0,3)} ${R.label.split(' ')[1]}</th><th>% of income</th><th>${R.plabel.split(' ')[0].slice(0,3)} ${R.plabel.split(' ')[1]}</th><th>Change</th></tr></thead>
+        <tbody>${stmt}</tbody>
+      </table></div>
+    </div>
+
+    <div class="rpt-section">
+      <div class="rpt-h">2. Budget analysis (50 · 30 · 20)</div>
+      <div class="rpt-scroll"><table class="rt">
+        <thead><tr><th>Category</th><th>Target</th><th>Actual</th><th>% of income</th><th>Variance (fav. / (adv.))</th><th>Status</th></tr></thead>
+        <tbody>${bud}</tbody>
+      </table></div>
+    </div>
+
+    <div class="rpt-section">
+      <div class="rpt-h">3. Key indicators</div>
+      <div class="rpt-scroll"><table class="rt">
+        <thead><tr><th>Measure</th><th>${R.label.split(' ')[0].slice(0,3)} ${R.label.split(' ')[1]}</th><th>${R.plabel.split(' ')[0].slice(0,3)} ${R.plabel.split(' ')[1]}</th></tr></thead>
+        <tbody>${rat}</tbody>
+      </table></div>
+    </div>
+
+    ${debtHtml}
+
+    <div class="rpt-section">
+      <div class="rpt-h">${R.hasDebts ? '5' : '4'}. Schedule of transactions</div>
+      ${R.ledger.length ? `<div class="rpt-scroll"><table class="rt">
+        <thead><tr><th>Date</th><th style="text-align:left">Description</th><th style="text-align:left">Category</th><th style="text-align:left">Type</th><th>Amount</th></tr></thead>
+        <tbody>${ledgerRows}</tbody></table></div>` : '<div class="rpt-note">No transactions recorded for this month.</div>'}
+    </div>
+
+    <div class="rpt-section">
+      <div class="rpt-h">Notes</div>
+      <ol class="rpt-note">
+        <li>Prepared on a cash basis from the transactions recorded in the app. Figures in brackets are negative.</li>
+        <li>Each month opens with the previous month's closing balance. At the start of a month you are asked whether it matches the cash you have; any difference appears as an adjustment.</li>
+        <li>Transactions are reported in the month they were recorded under, which matches the Budget screen.</li>
+        <li>Budget targets apply 50%, 30% and 20% to the income recorded for the month. Needs and wants are limits; savings is a minimum.</li>
+        <li>Debtors and creditors are tracked separately and do not affect net cash movement. Ageing is measured from each due date; entries with no due date are shown as not yet due.</li>
+      </ol>
+    </div>`;
+}
+
+window.printReport = () => window.print();
+
+window.exportCsv = () => {
+  const R = buildReport();
+  const q = v => '"' + String(v).replace(/"/g, '""') + '"';
+  const out = [];
+  out.push([q("Fidel's Finances – Monthly financial report"), q(R.label)].join(','));
+  out.push(q('Amounts in RWF, cash basis'));
+  out.push('');
+  out.push(q('Statement of income and expenditure'));
+  out.push(['Description', R.label, '% of income', R.plabel, 'Change'].map(q).join(','));
+  R.lines.forEach(l => {
+    if (l.kind === 'grp') { out.push(q(l.label)); return; }
+    out.push([q(l.label), Math.round(l.c), (R.C.income > 0 && !l.nopct) ? (l.c / R.C.income * 100).toFixed(1) + '%' : '', Math.round(l.p), Math.round(l.c - l.p)].join(','));
+  });
+  out.push('');
+  out.push(q('Budget analysis'));
+  out.push(['Category','Target %','Target','Actual','Variance','Status'].map(q).join(','));
+  R.budget.forEach(b => out.push([q(b.name), b.pct, Math.round(b.target), Math.round(b.actual), Math.round(b.variance), q(b.status)].join(',')));
+  if (R.hasDebts) {
+    out.push('');
+    out.push(q('Debtors and creditors'));
+    out.push(['','Opening','New','Collected / repaid','Closing'].map(q).join(','));
+    [['Debtors','debtor'],['Creditors','creditor']].forEach(([lab,k]) => {
+      const d = R.sched[k];
+      out.push([q(lab), Math.round(d.opening), Math.round(d.added), Math.round(-d.settled), Math.round(d.closing)].join(','));
+    });
+    out.push('');
+    out.push(['Type','Name','Note','Due date','Days overdue','Balance'].map(q).join(','));
+    [['Debtor','debtor'],['Creditor','creditor']].forEach(([lab,k]) =>
+      R.sched[k].items.forEach(i => out.push([q(lab), q(i.person), q(i.desc), q(i.due), i.over > 0 ? i.over : 0, Math.round(i.bal)].join(','))));
+  }
+  out.push('');
+  out.push(q('Schedule of transactions'));
+  out.push(['Date','Description','Category','Type','Amount'].map(q).join(','));
+  R.ledger.forEach(t => {
+    const kind = t.type === 'income' ? 'Income' : t.type === 'saving' ? 'Savings' : (t.needWant === 'want' ? 'Want' : 'Need');
+    out.push([q(t.date), q(t.desc), q(t.category), q(kind), Math.round((t.type === 'income' ? 1 : -1) * t.amount)].join(','));
+  });
+  const blob = new Blob(['\ufeff' + out.join('\n')], { type:'text/csv;charset=utf-8;' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `Fidels-Finances-${R.key}.csv`;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+};
+
+// ── Opening / closing balance and cash check ─────────────────
+function signed(v) { return (v < 0 ? '−' : '') + fmt(v); }
+function nextKey(k) { const [y,m] = k.split('-').map(Number); const d = new Date(y, m, 1);   return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0'); }
+function prevKey(k) { const [y,m] = k.split('-').map(Number); const d = new Date(y, m-2, 1); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0'); }
+function monthName(k) { const [y,m] = k.split('-').map(Number); return new Date(y, m-1, 1).toLocaleDateString('en-US', { month:'long', year:'numeric' }); }
+function todayKey() { const d = new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0'); }
+
+function allMonthKeys() {
+  const set = new Set();
+  transactions.forEach(t => { if (t.monthKey) set.add(t.monthKey); });
+  Object.keys(balances).forEach(k => set.add(k));
+  return [...set].sort();
+}
+
+// Each month opens with the previous month's closing balance, unless the person
+// has confirmed (or corrected) it by counting the cash they actually have.
+function balanceFor(key) {
+  const keys  = allMonthKeys();
+  const first = keys[0];
+  if (!first || key < first) return { opening:0, carried:0, adjustment:0, net:0, closing:0, confirmed:false };
+  const nets = {};
+  transactions.forEach(t => {
+    if (!t.monthKey) return;
+    nets[t.monthKey] = (nets[t.monthKey] || 0) + (t.type === 'income' ? t.amount : -t.amount);
+  });
+  let prevClosing = 0, res = null, guard = 0;
+  for (let k = first; k <= key && guard < 600; k = nextKey(k), guard++) {
+    const ov      = balances[k];
+    const carried = prevClosing;
+    const opening = ov ? ov.opening : carried;
+    const net     = nets[k] || 0;
+    const closing = opening + net;
+    res = { opening, carried, adjustment: opening - carried, net, closing, confirmed: !!ov };
+    prevClosing = closing;
+  }
+  return res;
+}
+
+function startBalancesListener() {
+  if (unsubBalances) unsubBalances();
+  const bq = query(collection(db, 'balances'), where('userId', '==', currentUser.uid));
+  unsubBalances = onSnapshot(bq,
+    snapshot => {
+      balances = {};
+      snapshot.docs.forEach(d => { const v = d.data(); balances[v.monthKey] = v; });
+      balLoaded = true;
+      render();
+      checkReconcile();
+    },
+    err => {
+      console.error(err);
+      showSync('⚠ Balances not syncing — check Firestore rules', 'error');
+    }
+  );
+}
+
+// Ask once at the start of each new month whether the carried-forward balance
+// matches the cash the person actually has.
+function checkReconcile() {
+  if (!currentUser || !txLoaded || !balLoaded) return;
+  const key = todayKey();
+  if (balances[key] || reconSkipFor === key) return;
+  if (document.getElementById('reconModal').classList.contains('open')) return;
+  const first = allMonthKeys()[0];
+  openReconcile(first && first < key ? 'ask' : 'start', key);
+}
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') checkReconcile(); });
+document.getElementById('reconModal').addEventListener('click', e => { if (e.target.id === 'reconModal') reconSkipFor = todayKey(); });
+
+window.openReconcile = (mode, key) => {
+  reconKey  = key || getKey();
+  reconMode = mode;
+  const b       = balanceFor(reconKey);
+  const first   = allMonthKeys()[0];
+  const hasPrev = first && first < reconKey;
+  const title = document.getElementById('reconTitle');
+  const msg   = document.getElementById('reconMsg');
+  const ask   = document.getElementById('reconAsk');
+  const ent   = document.getElementById('reconEnter');
+  const input = document.getElementById('reconInput');
+  const back  = document.getElementById('reconBackBtn');
+
+  if (mode === 'ask') {
+    title.textContent = 'Check your cash';
+    msg.innerHTML = `Your closing balance for ${monthName(prevKey(reconKey))} was <b>${signed(b.carried)}</b>.<br>Is that the amount you have on you now?`;
+    ask.style.display = 'block'; ent.style.display = 'none';
+    input.value = ''; back.style.display = 'block';
+  } else {
+    title.textContent = hasPrev ? 'Opening balance' : 'Starting balance';
+    msg.innerHTML = hasPrev
+      ? `Opening balance for ${monthName(reconKey)}. Carried forward from ${monthName(prevKey(reconKey))}: <b>${signed(b.carried)}</b>.<br>Enter the cash you actually have. Any difference is recorded as an adjustment.`
+      : `How much cash do you have on you right now?<br>This becomes your starting balance for ${monthName(reconKey)}.`;
+    ask.style.display = 'none'; ent.style.display = 'block';
+    input.value = mode === 'edit' ? Math.round(b.opening) : '';
+    back.style.display = 'none';
+    setTimeout(() => input.focus(), 300);
+  }
+  reconDiff();
+  document.getElementById('reconModal').classList.add('open');
+};
+
+window.reconDiff = () => {
+  const el = document.getElementById('reconDiff');
+  const first = allMonthKeys()[0];
+  if (!first || first >= reconKey) { el.textContent = ''; return; }
+  const v = parseFloat(document.getElementById('reconInput').value);
+  if (isNaN(v)) { el.textContent = ''; return; }
+  const diff = v - balanceFor(reconKey).carried;
+  el.textContent = diff === 0 ? 'Matches the carried-forward balance.'
+    : `Difference: ${diff > 0 ? '+' : '−'}${fmt(diff)} (${diff > 0 ? 'more' : 'less'} than recorded)`;
+};
+
+async function saveOpening(value) {
+  const b  = balanceFor(reconKey);
+  const id = currentUser.uid + '_' + reconKey;
+  document.getElementById('reconModal').classList.remove('open');
+  showSync('☁ Saving...', '');
+  try {
+    await setDoc(doc(db, 'balances', id), {
+      id, userId: currentUser.uid, monthKey: reconKey,
+      opening: value, carried: b.carried, confirmedAt: Date.now()
+    });
+    showSync('✓ Balance saved', 'success');
+    hideSync();
+  } catch(e) {
+    console.error(e);
+    showSync('⚠ Save failed — check connection', 'error');
+  }
+}
+
+window.reconYes   = () => saveOpening(balanceFor(reconKey).carried);
+window.reconNo    = () => {
+  document.getElementById('reconAsk').style.display   = 'none';
+  document.getElementById('reconEnter').style.display = 'block';
+  document.getElementById('reconInput').value = '';
+  reconDiff();
+  setTimeout(() => document.getElementById('reconInput').focus(), 100);
+};
+window.reconBack  = () => openReconcile('ask', reconKey);
+window.reconLater = () => { reconSkipFor = reconKey; document.getElementById('reconModal').classList.remove('open'); };
+window.reconSave  = () => {
+  const v = parseFloat(document.getElementById('reconInput').value);
+  if (isNaN(v)) { document.getElementById('reconInput').focus(); return; }
+  saveOpening(Math.round(v));
 };
 
 // Close modal on backdrop tap
