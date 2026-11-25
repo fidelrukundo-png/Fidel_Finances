@@ -3,7 +3,7 @@
    Provides full offline support via Cache-first strategy
    ============================================================ */
 
-const CACHE_NAME = 'fidels-finances-v1';
+const CACHE_NAME = 'fidels-finances-v2';
 
 // Files to cache on install
 const PRECACHE_ASSETS = [
